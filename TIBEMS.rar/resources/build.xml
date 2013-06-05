@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<project name="tibems-ra" basedir=".">
+    <property file="build.properties"/>
+
+    <property name="src.dir" value="../src"/>
+    <property name="lib.dir" value="../libs"/>    
+    <property name="build.dir" value="../build"/>
+	<property name="meta.dir" value="../META-INF"/>
+    <property name="name" value="tibems-ra"/>
+
+    <path id="master-classpath">
+        <fileset dir="${lib.dir}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="build" description="">
+    	<mkdir dir="${build.dir}"/>
+    	<mkdir dir="${build.dir}/META-INF"/>
+    	
+        <javac destdir="${build.dir}" source="1.6" target="1.6" debug="true"
+               deprecation="false" optimize="false" failonerror="true">
+            <src path="${src.dir}"/>
+            <classpath refid="master-classpath"/>
+        </javac>
+        
+        <jar destfile="${build.dir}/${name}.jar">
+            <fileset dir="${build.dir}" />
+        </jar>	        
+    </target>
+
+    <target name="build-rar" depends="build" description="build resource adapter">
+        <copy todir="${build.dir}" preservelastmodified="true">
+            <fileset dir="${lib.dir}">
+                <include name="jms-ra.jar"/>
+            </fileset>
+        </copy>
+               	
+
+        <copy todir="${build.dir}/META-INF" preservelastmodified="true">
+            <fileset dir="${meta.dir}">
+                <include name="ra.xml"/>
+            </fileset>
+        </copy>
+                       	
+    	<jar destfile="${build.dir}/${name}.rar">
+    		<fileset dir="${build.dir}" includes="META-INF META-INF/** tibems-ra.jar jms-ra.jar"/>
+    	</jar>            	
+    </target>
+               	
+</project>

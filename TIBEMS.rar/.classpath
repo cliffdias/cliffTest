@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="libs/jms-ra.jar"/>
+	<classpathentry kind="lib" path="libs/jboss-messaging-client.jar"/>
+	<classpathentry kind="lib" path="libs/jboss-messaging-int.jar"/>
+	<classpathentry kind="lib" path="libs/jboss-messaging.jar"/>
+	<classpathentry kind="lib" path="libs/jboss-ejb3-core.jar"/>
+	<classpathentry kind="lib" path="libs/jboss-javaee.jar"/>
+	<classpathentry kind="lib" path="libs/jboss.jar"/>
+	<classpathentry kind="lib" path="libs/jboss-logging-spi.jar"/>
+	<classpathentry kind="lib" path="libs/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="libs/concurrent.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
